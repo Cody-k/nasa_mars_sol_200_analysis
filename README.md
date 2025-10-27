@@ -59,26 +59,34 @@ pytest
 ## Structure
 
 ```
-├── src/
-│   ├── analysis.py       # Main analysis module
-│   ├── rad_parser.py     # RAD data file parser
-│   ├── visualize.py      # Visualization generation
-│   ├── findings.py       # Scientific interpretation
-│   └── cli.py            # Command-line interface
-├── tests/                # Test suite
-├── examples/             # Complete analysis workflow
-├── data/raw/             # NASA EDR files (145MB)
-└── FINDINGS.md           # Analysis results
+src/
+├── analysis.py               # Core analysis
+├── rad_parser.py             # RAD data parser
+├── radiation/
+│   ├── let_spectrum.py            # LET analysis, particle ID
+│   ├── dose_equivalent.py         # ICRP dose calculations
+│   └── visualize_spectrum.py      # Physics plots
+├── visualize.py              # Basic charts
+├── findings.py               # Interpretation
+└── cli.py                    # CLI
+
+tests/
+├── test_*.py                 # Core tests
+└── radiation/
+    ├── test_let_spectrum.py       # LET physics (6 tests)
+    └── test_dose_equivalent.py    # Dose calc (5 tests)
+
+examples/
+├── complete_analysis.py              # Basic workflow
+└── advanced_radiation_analysis.py    # Full physics
+
+FINDINGS.md               # Comprehensive results
+RESEARCH_ROADMAP.md       # Future extensions
 ```
 
 ## Technologies
 
-- Python 3.11+
-- Polars
-- Click
-- matplotlib
-- pytest
-- Ruff
+Python 3.11+ · Polars · SciPy · NumPy · matplotlib · Click · pytest · Ruff
 
 ## License
 
