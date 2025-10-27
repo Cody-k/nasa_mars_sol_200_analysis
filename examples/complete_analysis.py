@@ -1,6 +1,10 @@
 """Complete analysis example | Full Sol 200 analysis workflow"""
 
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from src import Sol200Analysis, Sol200Visualizer, Sol200Findings
 
 

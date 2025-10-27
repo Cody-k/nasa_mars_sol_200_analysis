@@ -24,8 +24,8 @@ class Sol200Findings:
             "detector_e": {
                 "mass_mg_cm2": stats["detector_e_mass_mg_cm2"],
                 "purpose": "Measures high-energy particles and radiation dose",
-                "mass_ratio": stats["detector_e_mass_mg_cm2"]
-                / (stats["detector_b_mass_g_cm2"] * 1000),
+                "mass_ratio": (stats["detector_e_mass_mg_cm2"] / 1000)
+                / stats["detector_b_mass_g_cm2"],
             },
         }
 
