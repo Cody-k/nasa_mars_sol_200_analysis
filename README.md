@@ -62,11 +62,13 @@ pytest
 ├── src/
 │   ├── analysis.py       # Main analysis module
 │   ├── rad_parser.py     # RAD data file parser
+│   ├── visualize.py      # Visualization generation
+│   ├── findings.py       # Scientific interpretation
 │   └── cli.py            # Command-line interface
-├── tests/
-│   ├── test_analysis.py
-│   └── test_parser.py
-└── data/raw/             # NASA EDR files (17MB)
+├── tests/                # Test suite
+├── examples/             # Complete analysis workflow
+├── data/raw/             # NASA EDR files (145MB)
+└── FINDINGS.md           # Analysis results
 ```
 
 ## Technologies
