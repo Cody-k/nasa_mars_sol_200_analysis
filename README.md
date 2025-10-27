@@ -73,7 +73,12 @@ pytest
 
 ## Technologies
 
-**Python 3.11+** | Polars | Click | pytest | Ruff
+- Python 3.11+
+- Polars
+- Click
+- matplotlib
+- pytest
+- Ruff
 
 ## License
 
