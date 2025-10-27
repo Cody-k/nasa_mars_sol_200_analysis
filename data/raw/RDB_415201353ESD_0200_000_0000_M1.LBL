@@ -1,0 +1,151 @@
+PDS_VERSION_ID                   = PDS3
+LABEL_REVISION_NOTE              = "2013-06-26, OPGS: Initial"
+
+/* FILE DATA ELEMENTS */
+
+RECORD_TYPE                      = FIXED_LENGTH
+RECORD_BYTES                     = 16400
+FILE_RECORDS                     = 44
+
+/* POINTERS TO DATA OBJECTS */
+
+^SCIENCE_TABLE                  = ("RDB_415201353ESD_0200_000_0000_M1.DAT",
+                                    1)
+
+/* IDENTIFICATION DATA ELEMENTS */
+
+DATA_SET_ID                      = "MSL-M-RAD-2-EDR-V1.0"
+DATA_SET_NAME                    = "MSL MARS RADIATION
+                                   ASSESSMENT DETECTOR 2 EDR V1.0"
+COMMAND_SEQUENCE_NUMBER          = 0
+INSTRUMENT_HOST_ID               = MSL
+INSTRUMENT_HOST_NAME             = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                    = RAD
+INSTRUMENT_NAME                  = "RADIATION ASSESSMENT DETECTOR"
+INSTRUMENT_TYPE                  = SPECTROMETER
+MSL:LOCAL_MEAN_SOLAR_TIME        = "Sol-00200M00:27:50.241"
+LOCAL_TRUE_SOLAR_TIME            = "00:12:21"
+MISSION_NAME                     = "MARS SCIENCE LABORATORY"
+MISSION_PHASE_NAME               = "PRIMARY SURFACE MISSION"
+OBSERVATION_ID                   = UNK
+PLANET_DAY_NUMBER                = 200
+PRODUCER_INSTITUTION_NAME        = "MULTIMISSION INSTRUMENT PROCESSING LAB,
+                                   JET PROPULSION LAB"
+PRODUCT_CREATION_TIME            = 2013-06-28T22:27:02.000
+PRODUCT_ID                       = "RDB_415201353ESD_0200_000_0000_M1"
+PRODUCT_VERSION_ID               = "V1.0"
+PRODUCT_TYPE                     = RAD_EDR
+RELEASE_ID                       = "0003"
+MSL:REQUEST_ID                   = "0"
+ROVER_MOTION_COUNTER             = (1,0,0,0,0,0,0,0,0,0)
+ROVER_MOTION_COUNTER_NAME        = (SITE, DRIVE, POSE, ARM, CHIMRA,
+                                   DRILL, RSM, HGA, DRT, IC)
+SEQUENCE_ID                      = "aut_04096"
+SEQUENCE_VERSION_ID              = "0"
+MSL:ACTIVE_FLIGHT_STRING_ID      = B
+SOLAR_LONGITUDE                  = 272.35
+SPACECRAFT_CLOCK_CNT_PARTITION   = 1
+SPACECRAFT_CLOCK_START_COUNT     = "415203069.000"
+SPACECRAFT_CLOCK_STOP_COUNT      = "415288415.000"
+START_TIME                       = 2013-02-27T02:16:03.952
+STOP_TIME                        = 2013-02-28T01:58:30.744
+TARGET_NAME                      = MARS
+TARGET_TYPE                      = PLANET
+
+/* TELEMETRY DATA ELEMENTS */
+
+APPLICATION_PROCESS_ID           = 500
+APPLICATION_PROCESS_NAME         = "RadSendData"
+MSL:VIRTUAL_CHANNEL_ID           = "32"
+MSL:COMMUNICATION_SESSION_ID     = "32032"
+DOWNLOAD_PRIORITY                = 73
+EARTH_RECEIVED_START_TIME        = 2013-03-02T20:24:26.135
+MSL:EXPECTED_TRANSMISSION_PATH   = "3851"
+MSL:AUTO_DELETE_FLAG             = "FALSE"
+MSL:TRANSMISSION_PATH            = "65535"
+FLIGHT_SOFTWARE_VERSION_ID       = "141801503"
+MSL:FLIGHT_SOFTWARE_MODE         = "8"
+MSL:PRODUCT_COMPLETION_STATUS    = COMPLETE_CHECKSUM_PASS
+MSL:PRODUCT_TAG                  = "0"
+MSL:SEQUENCE_EXECUTION_COUNT     = 0
+RECEIVED_PACKETS                 = 594
+SPICE_FILE_NAME                  = "chronos.msl"
+TELEMETRY_PROVIDER_ID            = MPCS_MSL_DP
+MSL:TELEMETRY_SOURCE_CHECKSUM    = 40873
+MSL:TELEMETRY_SOURCE_SCLK_START  = "415321042.23925"
+MSL:TELEMETRY_SOURCE_SIZE        = 4870800
+MSL:TELEMETRY_SOURCE_START_TIME  = 2013-059T11:02:18.412
+TELEMETRY_SOURCE_NAME        = "RadSendData_0415321042-23925-1.dat"
+MSL:TELEMETRY_SOURCE_TYPE        = "DATA PRODUCT"
+MSL:TELEMETRY_SOURCE_HOST_NAME   = mslsmsampcs1
+EXPECTED_PACKETS                 = 594
+
+/* COORDINATE SYSTEM STATE: ROVER AT THE END */
+
+GROUP                            = ROVER_COORDINATE_SYSTEM_PARMS
+ COORDINATE_SYSTEM_NAME          = ROVER_FRAME
+ COORDINATE_SYSTEM_INDEX         = (1,0,0,0,0,0,0,0,0,0)
+ COORDINATE_SYSTEM_INDEX_NAME    = (SITE, DRIVE, POSE, ARM, CHIMRA,
+                                   DRILL, RSM, HGA, DRT, IC)
+ ORIGIN_OFFSET_VECTOR            = (0,0,0)
+ ORIGIN_ROTATION_QUATERNION      = (0.0000000,0.0000000,0.0000000,1.0000000)
+ POSITIVE_AZIMUTH_DIRECTION      = CLOCKWISE
+ POSITIVE_ELEVATION_DIRECTION    = UP
+ REFERENCE_COORD_SYSTEM_NAME     = SITE_FRAME
+ REFERENCE_COORD_SYSTEM_INDEX    = 1
+END_GROUP                        = ROVER_COORDINATE_SYSTEM_PARMS
+
+/* ARTICULATION DEVICE STATE: REMOTE SENSING MAST */
+
+GROUP                            = RSM_ARTICULATION_STATE_PARMS
+ ARTICULATION_DEVICE_ID          = RSM
+ ARTICULATION_DEVICE_NAME        = "REMOTE SENSING MAST"
+ ARTICULATION_DEVICE_ANGLE       = (1.0e+30 <rad>, 1.0e+30 <rad>)
+ ARTICULATION_DEVICE_ANGLE_NAME  = (AZIMUTH, ELEVATION)
+END_GROUP                        = RSM_ARTICULATION_STATE_PARMS
+
+/* ARTICULATION DEVICE STATE: ROBOTIC ARM AT THE END (DP CREATION) */
+
+GROUP                            = ARM_ARTICULATION_STATE_PARMS
+ ARTICULATION_DEVICE_ID          = ARM
+ ARTICULATION_DEVICE_NAME        = ROBOTIC_ARM
+ ARTICULATION_DEVICE_ANGLE       = (1.0e+30 <rad>, 1.0e+30 <rad>, 
+                                    1.0e+30 <rad>, 1.0e+30 <rad>, 
+                                    1.0e+30 <rad>)
+ ARTICULATION_DEVICE_ANGLE_NAME  = ("JOINT 1 SHOULDER AZIMUTH",
+                                   "JOINT 2 SHOULDER ELEVATION",
+                                   "JOINT 3 ELBOW-ENCODER",
+                                   "JOINT 4 WRIST-ENCODER",
+                                   "JOINT 5 TURRET-ENCODER")
+END_GROUP                        = ARM_ARTICULATION_STATE_PARMS
+
+/* DERIVED GEOMETRY DATA ELEMENTS: SITE FRAME */
+
+GROUP                            = SITE_DERIVED_GEOMETRY_PARMS
+ REFERENCE_COORD_SYSTEM_NAME     = "SITE_FRAME"
+ REFERENCE_COORD_SYSTEM_INDEX    = 1
+ MSL:ROVER_DECK_TILT_ANGLE       = 0 <deg>
+END_GROUP                        = SITE_DERIVED_GEOMETRY_PARMS
+
+
+/* DATA OBJECT DEFINITION DESCRIPTIONS */
+
+/* RAD SCIENCE FRAME OBJECT */
+
+OBJECT                           = SCIENCE_TABLE
+   NAME                          = RAD_SCIENCE
+   INTERCHANGE_FORMAT            = BINARY
+   ROWS                          = 44
+   COLUMNS                       = 167
+   ROW_BYTES                     = 16400
+   DESCRIPTION                   = "
+    This table contains a science frame associated instrument
+    data as observed by the Mars Science Laboratory (MSL)
+    Radiation Assesment Detector.
+
+    The complete column definitions are contained in an external file
+    found in the LABEL directory of the archive volume.
+    "
+   ^STRUCTURE                    = "RAD_EDR_SCI_FRAME.FMT"
+END_OBJECT                       = SCIENCE_TABLE
+END

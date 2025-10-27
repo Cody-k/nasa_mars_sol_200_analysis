@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nasa-mars-sol200"
+version = "1.0.0"
+description = "Curiosity Rover Sol 200 data analysis"
+authors = [{name = "Cody Kickertz", email = "cody.kickertz@pm.me"}]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "polars>=1.0.0",
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.6.0",
+]
+
+[project.scripts]
+sol200 = "sol200.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"

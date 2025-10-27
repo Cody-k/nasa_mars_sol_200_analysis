@@ -1,0 +1,1 @@
+[Full content from data-project/docs/DATABASE_SETUP.md should be copied here.] 
