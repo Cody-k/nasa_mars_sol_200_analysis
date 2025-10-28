@@ -22,7 +22,7 @@ class MastcamImageLoader:
         """
         Load PDS IMG file to numpy array
 
-        Mastcam images are typically 16-bit unsigned integers
+        Handles both 8-bit RGB and 16-bit grayscale formats
         """
         try:
             label_file = img_file.with_suffix(".lbl")
@@ -30,29 +30,43 @@ class MastcamImageLoader:
             if not label_file.exists():
                 return None
 
-            dimensions = self._parse_label(label_file)
+            params = self._parse_label(label_file)
 
-            if not dimensions:
+            if not params:
                 return None
 
-            lines = dimensions.get("LINES", 0)
-            line_samples = dimensions.get("LINE_SAMPLES", 0)
+            lines = params.get("LINES", 0)
+            line_samples = params.get("LINE_SAMPLES", 0)
+            bands = params.get("BANDS", 1)
+            sample_bits = params.get("SAMPLE_BITS", 8)
 
             with open(img_file, "rb") as f:
                 data = f.read()
 
-            image_array = np.frombuffer(data, dtype=">u2")
-            image_array = image_array.reshape((lines, line_samples))
+            if sample_bits == 8:
+                dtype = np.uint8
+            elif sample_bits == 16:
+                dtype = ">u2"
+            else:
+                return None
+
+            image_array = np.frombuffer(data, dtype=dtype)
+
+            if bands == 3:
+                image_array = image_array.reshape((bands, lines, line_samples))
+                image_array = np.transpose(image_array, (1, 2, 0))
+            else:
+                image_array = image_array.reshape((lines, line_samples))
 
             return image_array
         except Exception:
             return None
 
     def _parse_label(self, label_file: Path) -> Optional[dict]:
-        """Parse PDS label file for image dimensions"""
+        """Parse PDS label file for image parameters"""
         try:
             content = label_file.read_text()
-            dimensions = {}
+            params = {}
 
             for line in content.split("\n"):
                 line = line.strip()
@@ -60,18 +74,32 @@ class MastcamImageLoader:
                 if line.startswith("LINES") and "=" in line:
                     try:
                         val = line.split("=")[1].strip()
-                        dimensions["LINES"] = int(val)
+                        params["LINES"] = int(val)
                     except ValueError:
                         pass
 
                 if line.startswith("LINE_SAMPLES") and "=" in line:
                     try:
                         val = line.split("=")[1].strip()
-                        dimensions["LINE_SAMPLES"] = int(val)
+                        params["LINE_SAMPLES"] = int(val)
                     except ValueError:
                         pass
 
-            return dimensions if "LINES" in dimensions and "LINE_SAMPLES" in dimensions else None
+                if line.startswith("BANDS") and "=" in line:
+                    try:
+                        val = line.split("=")[1].strip()
+                        params["BANDS"] = int(val)
+                    except ValueError:
+                        pass
+
+                if line.startswith("SAMPLE_BITS") and "=" in line:
+                    try:
+                        val = line.split("=")[1].strip()
+                        params["SAMPLE_BITS"] = int(val)
+                    except ValueError:
+                        pass
+
+            return params if "LINES" in params and "LINE_SAMPLES" in params else None
         except Exception:
             return None
 
