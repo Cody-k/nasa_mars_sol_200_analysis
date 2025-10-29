@@ -110,7 +110,7 @@ FINDINGS.md               # Comprehensive results
 RESEARCH_ROADMAP.md       # Future extensions
 ```
 
-**Stats:** 1,996 LOC · 17 tests · Python 3.11+
+**Stats:** 1,711 LOC · 17 tests · Python 3.11+
 
 ## Technologies
 
